@@ -25,8 +25,8 @@ public class Board {
     @Column
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Column(name = "done", nullable = false)
-    @Builder.Default  // 기본값을 빌더에서 사용하도록 명시
-    private Boolean isDone = false;
+    @Column(nullable = false)
+    @Builder.Default
+    private Boolean IsDone = false;
 
 }
