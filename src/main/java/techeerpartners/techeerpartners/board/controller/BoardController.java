@@ -38,7 +38,7 @@ public class BoardController {
         boardService.deleteBoard(id);
         return ResponseEntity.status(HttpStatus.OK).body(CustomApiResponse.onSuccess("할 일이 삭제됌."));
     }
-    @Operation(summary = "완료된 일 조회", description = "true인 일과 false인 일들을 파라미터로 조회합니다.")
+    @Operation(summary = "완료된 일과 미완료된 일들을 파라미터로 조회", description = "true인 일과 false인 일들을 파라미터로 조회합니다.")
     @GetMapping("/tasks")
     public ResponseEntity<CustomApiResponse<List<BoardResponse>>> getTasks(@RequestParam boolean isDone) {
         List<BoardResponse> tasks = boardService.getTasksByStatus(isDone);
