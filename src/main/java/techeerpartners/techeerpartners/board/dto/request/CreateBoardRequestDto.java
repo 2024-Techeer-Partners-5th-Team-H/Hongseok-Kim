@@ -1,4 +1,4 @@
-package techeerpartners.techeerpartners.board.dto;
+package techeerpartners.techeerpartners.board.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package techeerpartners.techeerpartners.board.dto;
+package techeerpartners.techeerpartners.board.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FixBoardRequestDto {
-    private String content;
+public class BoardResponse {
+    private Long id;
+    private String title;
     private Boolean isDone;
+
 }

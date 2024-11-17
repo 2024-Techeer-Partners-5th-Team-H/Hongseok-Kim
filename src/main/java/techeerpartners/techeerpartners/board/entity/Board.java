@@ -14,17 +14,17 @@ import java.time.LocalDateTime;
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long boardId; // 수정: boardId -> 기존 BoardId
+    private Long boardId;
 
     @Column
-    private String title; // 수정: title -> 기존 Title
+    private String title;
 
     @Column
-    private String content; // 수정: content -> 기존 Content
+    private String content;
 
     @Column(nullable = false)
     @Builder.Default
-    private Boolean isDone = false; // 수정: isDone -> 기존 IsDone
+    private Boolean isDone = false;
 
     @Column
     private LocalDateTime createdAt = LocalDateTime.now();

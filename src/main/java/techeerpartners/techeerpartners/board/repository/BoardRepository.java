@@ -9,5 +9,5 @@ import techeerpartners.techeerpartners.board.entity.Board;
 import java.util.List;
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long> {
-    List<Board> findByIsDoneTrue();
+    List<Board> findByIsDone(boolean isDone);
 }
