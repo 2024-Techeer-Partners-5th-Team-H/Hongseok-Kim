@@ -19,18 +19,25 @@ public class BoardService {
     @Transactional
     public void createBoard(CreateBoardRequestDto createBoardRequestDto) {
         Board board = Board.builder()
-                .title(createBoardRequestDto.getTitle())  // title() 사용
-                .content(createBoardRequestDto.getContent())  // content() 사용
-                .build();  // build() 메서드로 객체 생성
+                .title(createBoardRequestDto.getTitle())
+                .content(createBoardRequestDto.getContent())
+                .build();
         boardRepository.save(board);
     }
     @Transactional
     public void updateBoard(Long id, FixBoardRequestDto fixBoardRequestDto) {
         Board board = boardRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("ID를 찾을 수없음"));
-        board.setContent(fixBoardRequestDto.getContent());
-        board.setIsDone(fixBoardRequestDto.getIsDone());
+        Board updatedBoard = Board.builder()
+                .boardId(board.getBoardId())
+                .title(board.getTitle())
+                .content(fixBoardRequestDto.getContent())
+                .isDone(fixBoardRequestDto.getIsDone())
+                .createdAt(board.getCreatedAt())
+                .build();
+        boardRepository.save(updatedBoard);
     }
+
     @Transactional
     public void deleteBoard(Long id) {
         Board board =boardRepository.findById(id)
